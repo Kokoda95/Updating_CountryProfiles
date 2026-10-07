@@ -308,4 +308,4 @@ ggsave(file.path(out_dir, "tza_admin_boundaries.png"),
 ggsave(file.path(out_dir, "tza_admin_boundaries.pdf"),
        plot = final_map, width = 13, height = 9.3, bg = bg_col)
 
-# cat("\nMap exported to:", normalizePath(out_dir), "\n")
+cat("\nMap exported to:", normalizePath(out_dir), "\n")
