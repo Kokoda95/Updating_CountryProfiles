@@ -43,9 +43,7 @@ The official languages are Swahili and English.
 | Incidence | 137 per 1,000 population | 2024 | World malaria report 2025 |
 | Mortality | 38 per 100,000 population | 2024 | World malaria report 2025 |
 | Capital city | Dodoma | 2026 |Tanzania National Bureau of Statistics (NBS) |
-| Economic activities & geography |The country covers approximately 947,300 km², with 65.6% of the population residing in rural areas and 34.4% in urban areas. 
-Key economic activities include agriculture, livestock keeping, fishing, mining, manufacturing, trade, and services, with agriculture remaining an important source of income. | 2022 | The 2022 Population and Housing Census: Basic Demographic and
-Socio-Economic Profile; Tanzania Mainland, April 2024.|
+| Economic activities & geography | Area approx. 947,300 km²; 65.6% rural, 34.4% urban. Main activities: agriculture, livestock, fishing, mining, manufacturing, trade and services, with agriculture the main source of income. | 2022 | 2022 Population and Housing Census: Basic Demographic and Socio-Economic Profile, Tanzania Mainland (NBS, April 2024) |
 
 ---
 
@@ -67,7 +65,7 @@ of the Ministry of Health (MOH) and, consequently, those of NMCP.
 
 ## 4. Malaria Situation
 
-Mainland Tanzania is among the ten countries with the highest malaria burden globally, accounting for 3.3% of global malaria cases and 4.3% of global malaria deaths in 2024. It accounted for 12.7% of malaria cases in East and Southern Africa. Malaria case incidence decreased by 3.5%, from 142 cases per 1,000 population at risk in 2015 to 138 per 1,000 in 2024, while the malaria mortality rate decreased by 13.6%, from 0.44 to 0.38 deaths per 1,000 population at risk over the same period.
+Mainland Tanzania is among the ten countries with the highest malaria burden globally, accounting for 3.3% of global malaria cases and 4.3% of global malaria deaths in 2024. It accounted for 12.7% of malaria cases in East and Southern Africa. Malaria case incidence decreased by 3.5%, from 142 cases per 1,000 population at risk in 2015 to 137 per 1,000 in 2024, while the malaria mortality rate decreased by 13.6%, from 0.44 to 0.38 deaths per 1,000 population at risk over the same period.
 
 According to the SMPS 2025, malaria prevalence was 7.5% among school-aged children (5–16 years) and 5.7% among children under five. Transmission remains heterogeneous across the country. Among school-aged children, prevalence was highest in the Lake (15.7%), Southern (12.5%), and Western (11.3%) zones, and lowest in the Central (0.3%), Northern (1.3%), and Southern Highlands (3.7%) zones. Among children under five, prevalence was highest in the Lake (12.5%) and Southwest Highlands (8.7%) zones.
 
@@ -122,9 +120,9 @@ In addition, malaria infection among pregnant women aged 15–45 years is monito
 
 ## 7. Health System
 
-The national health system in Tanzania operates under a decentralized government structure, with the Ministry of Health (MoHCDGEC) and the President’s Office–Regional Administration and Local Government (PO-RALG) sharing responsibility for the delivery of public health services. The MoHCDGEC is responsible for policy development, formulation of guidelines, and monitoring, while also directly managing referral hospitals, particularly national-level hospitals.
+The national health system in Tanzania operates under a decentralized government structure, with the Ministry of Health (MoH) and the President’s Office–Regional Administration and Local Government (PO-RALG) sharing responsibility for the delivery of public health services. The MoH is responsible for policy development, formulation of guidelines, and monitoring, while also directly managing referral hospitals, particularly national-level hospitals.
 
-Tanzania has approximately 14,321 registered and functional health facilities, of which 60% are publicly owned and 40% are privately owned. These include 9,016 (62.9%) dispensaries, 1,441 (10.6%) health centers, 1,125 (7.9%) clinics, 1,920 (13.6%) health laboratories, 484 (3.4%) hospitals, and 335 (1.6%) other facilities. The health system is organized hierarchically according to administrative level, facility type, and function, with a referral structure extending from primary healthcare to tertiary care.
+Tanzania has approximately 14,321 registered and functional health facilities, of which 60% are publicly owned and 40% are privately owned. These include 9,016 (63.0%) dispensaries, 1,441 (10.1%) health centers, 1,125 (7.9%) clinics, 1,920 (13.4%) health laboratories, 484 (3.4%) hospitals, and 335 (2.3%) other facilities. The health system is organized hierarchically according to administrative level, facility type, and function, with a referral structure extending from primary healthcare to tertiary care.
 
 At the primary healthcare level, dispensaries, clinics, health centers, and district hospitals provide essential health services. A dispensary typically serves a population of 6,000–10,000 people, a health center 50,000–80,000 people, and a district hospital more than 250,000 people. Regional hospitals provide secondary-level referral services for district hospitals, while zonal hospitals receive referrals from regional hospitals. National hospitals provide tertiary-level referral services from both zonal and regional hospitals. Specialized hospitals that do not fit within this hierarchy are directly linked to the Ministry of Health.
 

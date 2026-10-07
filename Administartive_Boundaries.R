@@ -29,7 +29,7 @@ library(rnaturalearthdata)
 library(stringr)
 
 ## ---- 1. WORKING DIRECTORY & FILE DISCOVERY --------------------------------
-wd <- "C:/Users/ykokoda/Desktop/country-submission-template"
+wd <- "D:/TZ profile/Updating_CountryProfiles/TZA"
 setwd(wd)
 
 all_shp <- list.files(wd, pattern = "\\.shp$", full.names = TRUE, recursive = TRUE)
@@ -56,7 +56,20 @@ cat("Shapefiles found:\n"); print(all_shp)
 ## ---- 2. READ SHAPEFILES ---------------------------------------------------
 
 adm2 <- st_read(adm2_path, quiet = TRUE) %>% st_make_valid()
- 
+
+water <- st_read("Shapefiles/water/water_bodies.shp", quiet = TRUE) %>%
+  st_make_valid() %>%
+  st_transform(4326) %>%                    # Arc 1960 -> WGS84
+  filter(LAKES != "Indian Ocean")           # ocean polygon is cut off
+
+
+water_labels <- data.frame(
+  label = c("Lake Victoria", "Lake Tanganyika", "Lake Nyasa", "Indian Ocean"),
+  lon   = c(32.6,  29.6,  34.6,  40.6),
+  lat   = c(-1.6,  -6.9,  -11.0, -8.6),
+  angle = c(0,     -60,   -80,   90)       
+)
+
 adm1 <- adm2 |> 
    group_by(Region) |> 
    summarise(
@@ -109,7 +122,7 @@ adm2 <- adm2 %>%
             by = "Region")
 
 adm2$legend_label <- factor(adm2$Region, levels = adm1_lookup$Region)
-fill_values <- setNames(adm2$fill_color, adm2$legend_label)
+fill_values <- setNames(adm1_lookup$fill_color, adm1_lookup$Region)
 
 ## ---- 5. PROVINCE LABEL POSITIONS ------------------------------------------
 adm1_labels <- adm1 %>%
@@ -124,7 +137,7 @@ big_city <- st_as_sf(
 )
 
 capital <- st_as_sf(
-  data.frame(name = "Dodoma", lon = 35.95970, lat = -5.847071),
+  data.frame(name = "Dodoma", lon = 35.7516, lat = -6.1630),
   coords = c("lon", "lat"), crs = 4326
 )
 
@@ -133,6 +146,7 @@ capital <- st_as_sf(
 bg_col     <- "#C9C6BD"   # neutral warm-grey background (replaces the old green)
 admin1_col <- "#D4AF37"   # gold province boundaries
 admin2_col <- "#2B2B2B"   # near-black district boundaries
+water_col  <- "#A9CCE3"   
 
 bbox <- st_bbox(adm1)
 
@@ -141,7 +155,7 @@ bbox <- st_bbox(adm1)
 ## panel (and therefore inside its single black neatline/frame), instead of
 ## floating as separate boxes outside it. Padding amounts are tuned to match
 ## the reference figure's proportions.
-xlim_main <- c(bbox["xmin"] - 18, bbox["xmax"] + 1.7)
+xlim_main <- c(bbox["xmin"] - 11.5, bbox["xmax"] + 1.7)
 ylim_main <- c(bbox["ymin"] - 1.6, bbox["ymax"] + 1.7)
 
 ## Small helper: draws province names in a translucent white label box so
@@ -149,6 +163,9 @@ ylim_main <- c(bbox["ymin"] - 1.6, bbox["ymax"] + 1.7)
 main_map <- ggplot() +
   geom_sf(data = adm2, aes(fill = legend_label), color = admin2_col, linewidth = 0.12) +
   geom_sf(data = adm1, fill = NA, color = admin1_col, linewidth = 1.1) +
+  geom_sf(data = water, fill = water_col, color = "#5B8FB9", linewidth = 0.2) +
+  geom_text(data = water_labels, aes(x = lon, y = lat, label = label, angle = angle),
+            color = "#1F4E79", fontface = "italic", size = 3.4) +
   geom_label(data = adm1_labels, aes(x = lon, y = lat, label = Region),
              color = "white", fill = "grey", alpha = 0.6,
              fontface = "bold", size = 3.5, label.size = 0,
@@ -158,9 +175,9 @@ main_map <- ggplot() +
   scale_x_continuous(sec.axis = dup_axis(name = NULL)) +
   scale_y_continuous(sec.axis = dup_axis(name = NULL)) +
   coord_sf(xlim = xlim_main, ylim = ylim_main, expand = FALSE) +
-  annotation_scale(location = "bl", width_hint = 0.22,
-                   bar_cols = c("black", "white"),
-                   pad_x = unit(0.35, "npc"), pad_y = unit(0.04, "npc")) +
+  annotation_scale(location = "br", width_hint = 0.22,
+                 bar_cols = c("black", "white"),
+                 pad_x = unit(0.05, "npc"), pad_y = unit(0.04, "npc")) +
   annotation_north_arrow(location = "tr", which_north = "true",
                          style = north_arrow_fancy_orienteering(),
                          height = unit(1.4, "cm"), width = unit(1.4, "cm")) +
@@ -221,7 +238,7 @@ inset_map <- tryCatch(
     africa <- ne_countries(continent = "Africa", scale = "medium", returnclass = "sf")
     ggplot() +
       geom_sf(data = africa, fill = "#EDE7D9", color = "grey40", linewidth = 0.2) +
-      geom_sf(data = moz_outline, fill = NA, color = "black", linewidth = 1.2) +
+      geom_sf(data = tza_outline, fill = NA, color = "black", linewidth = 1.2) +
       coord_sf(xlim = c(-20, 55), ylim = c(-36, 38), expand = FALSE) +
       labs(x = NULL, y = NULL) +
       theme_bw(base_size = 7) +
@@ -232,51 +249,63 @@ inset_map <- tryCatch(
   }
 )
 
-## ---- 9. STAND-ALONE LEGEND (mimics the reference figure's legend box) -----
-y0        <- 7
-row_gap   <- 0.6
+## ---- 9. STAND-ALONE LEGEND (two columns so 26 regions fit) -------------
+leg_rows <- 13     # regions per column
+row_gap  <- 0.75   # vertical space between rows
+col_gap  <- 1.9    # horizontal space between the two columns
+y0       <- 7      # y position of the first region row
+
+leg_df <- adm1_labels %>%
+  st_drop_geometry() %>%
+  arrange(Region) %>%
+  mutate(i = row_number() - 1,
+         x = (i %/% leg_rows) * col_gap,   # 0 for rows 1-13, col_gap for 14-26
+         y = y0 - (i %% leg_rows) * row_gap)
+
 legend_plot <- ggplot() +
   annotate("text",  x = -0.15, y = 11.4, label = "Legend", hjust = 0, size = 6) +
   annotate("point", x = 0, y = 10.4, color = "red", size = 3) +
   annotate("text",  x = 0.35, y = 10.4, label = "Capital City", hjust = 0, size = 4) +
-  annotate("segment", x = -0.12, xend = 0.12, y = 9.6, yend = 9.6, color = "black", linewidth = 1.1) +
-  annotate("text",  x = 0.35, y = 9.6, label = "Admin2", hjust = 0, size = 4) +
-  annotate("text",  x = -0.15, y = 8.6, label = "Admin1", hjust = 0, size = 4.4, fontface = "bold") +
-  geom_tile(data = adm1_labels,
-            aes(x = 0, y = y0 - (row_number(Region) - 1) * row_gap,
-                fill = Region, width = 0.32, height = 0.4), show.legend = FALSE) +
-  geom_text(data = adm1_labels,
-            aes(x = 0.35, y = y0 - (row_number(Region) - 1) * row_gap, label = Region),
-            hjust = 0, size = 3.5) +
+  annotate("segment", x = -0.12, xend = 0.12, y = 9.6, yend = 9.6,
+           color = admin1_col, linewidth = 1.1) +
+  annotate("text",  x = 0.35, y = 9.6, label = "Region boundary", hjust = 0, size = 4) +
+  annotate("tile", x = 2.3, y = 10.4, width = 0.32, height = 0.5,
+           fill = water_col, colour = "#5B8FB9") +
+  annotate("text", x = 2.6, y = 10.4, label = "Water body", hjust = 0, size = 4) +
+  annotate("text",  x = -0.15, y = 8.4, label = "Regions", hjust = 0,
+           size = 4.4, fontface = "bold") +
+  geom_tile(data = leg_df, aes(x = x, y = y, fill = Region),
+            width = 0.32, height = 0.5, show.legend = FALSE) +
+  geom_text(data = leg_df, aes(x = x + 0.3, y = y, label = Region),
+            hjust = 0, size = 3.4) +
   scale_fill_manual(values = fill_values) +
-  coord_cartesian(xlim = c(-0.3, 3.6),
-                  ylim = c(y0 - (n_prov - 1) * row_gap - 0.6, 12.2), expand = FALSE) +
+  coord_cartesian(xlim = c(-0.3, 2 * col_gap),
+                  ylim = c(y0 - (leg_rows - 1) * row_gap - 0.7, 12.2), expand = FALSE) +
   theme_void() +
-  theme(plot.background = element_rect(color = "black", linewidth = 0.5),
+  theme(plot.background = element_rect(fill = "white", color = "black", linewidth = 0.5),
         plot.margin     = margin(6, 6, 6, 6))
 
 ## ---- 10. COMBINE MAIN MAP + INSET + LEGEND --------------------------------
-## The main map fills the WHOLE canvas edge-to-edge. Because Mozambique's
-## boomerang shape leaves its own NW corner empty (just background colour +
-## graticule), the inset and legend are simply overlaid on top of that empty
-## space -- exactly as in the reference figure -- instead of being boxed
-## into a separate column. This avoids any duplicate/offset frame.
-final_map <- ggdraw() + 
-  draw_plot(main_map,   x = 0,     y = 0,    width = 1,    height = 1) +
-  draw_plot(inset_map,  x = 0.045, y = 0.6, width = 0.285, height = 0.345) +
-  draw_plot(legend_plot, x = 0.075, y = 0.0575, width = 0.285, height = 0.50) +
-  theme(plot.background = element_rect(fill = bg_col, color = NA))
+x_box <- c(bbox["xmin"] - 11.1, bbox["xmin"] - 3.6)   # left/right edge of both boxes
+
+final_map <- main_map +
+  annotation_custom(ggplotGrob(inset_map),
+                    xmin = x_box[1], xmax = x_box[2],
+                    ymin = -6.6,     ymax = 0.2) +       # Africa inset: top-left
+  annotation_custom(ggplotGrob(legend_plot),
+                    xmin = x_box[1], xmax = x_box[2],
+                    ymin = -12.9,    ymax = -7.0)        # legend: below the inset
 
 print(final_map)
 
 ## ---- 11. EXPORT -------------------------------------------------------------
-out_dir <- file.path(wd, "..", "..", "Outputs")
+out_dir <- file.path(wd, "Images")
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
-ggsave(file.path(out_dir, "Mozambique_StudyArea_Map.png"),
+ggsave(file.path(out_dir, "tza_admin_boundaries.png"),
        plot = final_map, width = 13, height = 9.3, dpi = 300, bg = bg_col)
 
-ggsave(file.path(out_dir, "Mozambique_StudyArea_Map.pdf"),
+ggsave(file.path(out_dir, "tza_admin_boundaries.pdf"),
        plot = final_map, width = 13, height = 9.3, bg = bg_col)
 
-cat("\nMap exported to:", normalizePath(out_dir), "\n")
+# cat("\nMap exported to:", normalizePath(out_dir), "\n")
