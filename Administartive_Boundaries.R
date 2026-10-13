@@ -62,6 +62,10 @@ water <- st_read("Shapefiles/water/water_bodies.shp", quiet = TRUE) %>%
   st_transform(4326) %>%                    # Arc 1960 -> WGS84
   filter(LAKES != "Indian Ocean")           # ocean polygon is cut off
 
+# Protected Areas: National Parks, Game reserves, Conservation Areas
+parks <- st_read("Shapefiles/Tanzania National Parks And Game Reserves(290915)/TZ_National_Parks_and_Game_Reserves.shp", quiet = TRUE) %>%
+  st_make_valid() %>%
+  st_transform(4326)
 
 water_labels <- data.frame(
   label = c("Lake Victoria", "Lake Tanganyika", "Lake Nyasa", "Indian Ocean"),
@@ -146,7 +150,8 @@ capital <- st_as_sf(
 bg_col     <- "#C9C6BD"   # neutral warm-grey background (replaces the old green)
 admin1_col <- "#D4AF37"   # gold province boundaries
 admin2_col <- "#2B2B2B"   # near-black district boundaries
-water_col  <- "#A9CCE3"   
+water_col  <- "#A9CCE3" 
+park_col <- "#A5D6A7"
 
 bbox <- st_bbox(adm1)
 
@@ -162,7 +167,10 @@ ylim_main <- c(bbox["ymin"] - 1.6, bbox["ymax"] + 1.7)
 ## they stay legible whether they land on light-gold or near-black fills.
 main_map <- ggplot() +
   geom_sf(data = adm2, aes(fill = legend_label), color = admin2_col, linewidth = 0.12) +
-  geom_sf(data = adm1, fill = NA, color = admin1_col, linewidth = 1.1) +
+  geom_sf(data = parks, fill = park_col, alpha = 0.85,
+          color = "#388E3C", linewidth = 0.35) +
+  geom_sf(data = adm2, fill = NA, color = admin2_col, linewidth = 0.12) +   # council lines on top of parks
+  geom_sf(data = adm1, fill = NA, color = admin1_col, linewidth = 1.1) +    # region lines on top of parks
   geom_sf(data = water, fill = water_col, color = "#5B8FB9", linewidth = 0.2) +
   geom_text(data = water_labels, aes(x = lon, y = lat, label = label, angle = angle),
             color = "#1F4E79", fontface = "italic", size = 3.4) +
@@ -181,7 +189,9 @@ main_map <- ggplot() +
   annotation_north_arrow(location = "tr", which_north = "true",
                          style = north_arrow_fancy_orienteering(),
                          height = unit(1.4, "cm"), width = unit(1.4, "cm")) +
-  labs(x = NULL, y = NULL) +
+  labs(x = NULL, y = NULL,
+  title = "Geographical Map of Mainland Tanzania",
+subtitle = "Highlighting regions and Councils") +
   theme_bw(base_size = 12) +
   theme(
     ## The BLACK "neatline" is drawn only around the panel (not around the
@@ -193,7 +203,11 @@ main_map <- ggplot() +
     panel.border     = element_rect(color = "black", fill = NA, linewidth = 1.3),
     panel.grid.major = element_line(color = "grey55", linewidth = 0.3),
     plot.background  = element_rect(fill = bg_col, color = NA),
-    plot.margin      = margin(6, 10, 6, 6),
+        plot.margin      = margin(10, 10, 6, 6),
+    plot.title       = element_text(face = "bold", size = 20, hjust = 0.5,
+                                    margin = margin(b = 2)),
+    plot.subtitle    = element_text(size = 13, hjust = 0.5, colour = "grey25",
+                                    margin = margin(b = 8)),
     legend.position  = "none"
   )
 
@@ -272,6 +286,9 @@ legend_plot <- ggplot() +
   annotate("tile", x = 2.3, y = 10.4, width = 0.32, height = 0.5,
            fill = water_col, colour = "#5B8FB9") +
   annotate("text", x = 2.6, y = 10.4, label = "Water body", hjust = 0, size = 4) +
+  annotate("tile", x = 2.3, y = 9.6, width = 0.32, height = 0.5,
+           fill = park_col, alpha = 0.85, colour = "#388E3C") +
+  annotate("text", x = 2.6, y = 9.6, label = "Protected area", hjust = 0, size = 4) +
   annotate("text",  x = -0.15, y = 8.4, label = "Regions", hjust = 0,
            size = 4.4, fontface = "bold") +
   geom_tile(data = leg_df, aes(x = x, y = y, fill = Region),
@@ -303,9 +320,9 @@ out_dir <- file.path(wd, "Images")
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
 ggsave(file.path(out_dir, "tza_admin_boundaries.png"),
-       plot = final_map, width = 13, height = 9.3, dpi = 300, bg = bg_col)
+       plot = final_map, width = 13, height = 9.9, dpi = 300, bg = bg_col)
 
 ggsave(file.path(out_dir, "tza_admin_boundaries.pdf"),
-       plot = final_map, width = 13, height = 9.3, bg = bg_col)
+       plot = final_map, width = 13, height = 9.9, bg = bg_col)
 
 cat("\nMap exported to:", normalizePath(out_dir), "\n")
