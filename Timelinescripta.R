@@ -29,7 +29,6 @@ ev <- data.frame(
            "2017", "2019", "2020", "2022", "2023", "2024", "2026"),
   
   left = c(
-    "",
     "Adoption of ACT for P. falciparum",            
     "Introduction of RDTs",
     "Introduction of IRS in high burden\nDistricts",
