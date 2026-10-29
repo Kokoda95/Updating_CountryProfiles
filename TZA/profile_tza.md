@@ -43,9 +43,7 @@ The official languages are Swahili and English.
 | Incidence | 137 per 1,000 population | 2024 | World malaria report 2025 |
 | Mortality | 38 per 100,000 population | 2024 | World malaria report 2025 |
 | Capital city | Dodoma | 2026 |Tanzania National Bureau of Statistics (NBS) |
-| Economic activities & geography |The country covers approximately 947,300 km², with 65.6% of the population residing in rural areas and 34.4% in urban areas. 
-Key economic activities include agriculture, livestock keeping, fishing, mining, manufacturing, trade, and services, with agriculture remaining an important source of income. | 2022 | The 2022 Population and Housing Census: Basic Demographic and
-Socio-Economic Profile; Tanzania Mainland, April 2024.|
+| Economic activities & geography | Area approx. 947,300 km²; 65.6% rural, 34.4% urban. Main activities: agriculture, livestock, fishing, mining, manufacturing, trade and services, with agriculture the main source of income. | 2022 | 2022 Population and Housing Census: Basic Demographic and Socio-Economic Profile, Tanzania Mainland (NBS, April 2024) |
 
 ---
 
@@ -60,14 +58,17 @@ important administrative and implementation authority for public services, inclu
 of the Ministry of Health (MOH) and, consequently, those of NMCP.
 
 
-**Figure:** [file-name of administrative boundary map]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** tza_admin_boundaries.png
+
+![](Images/tza_admin_boundaries.png)
+
+**Caption:** Regions and councils of Mainland Tanzania, with major water bodies · **Source:** [source of District_TZ.shp]; water bodies: [source of water_bodies.shp]
 
 ---
 
 ## 4. Malaria Situation
 
-Mainland Tanzania is among the ten countries with the highest malaria burden globally, accounting for 3.3% of global malaria cases and 4.3% of global malaria deaths in 2024. It accounted for 12.7% of malaria cases in East and Southern Africa. Malaria case incidence decreased by 3.5%, from 142 cases per 1,000 population at risk in 2015 to 138 per 1,000 in 2024, while the malaria mortality rate decreased by 13.6%, from 0.44 to 0.38 deaths per 1,000 population at risk over the same period.
+Mainland Tanzania is among the ten countries with the highest malaria burden globally, accounting for 3.3% of global malaria cases and 4.3% of global malaria deaths in 2024. It accounted for 12.7% of malaria cases in East and Southern Africa. Malaria case incidence decreased by 3.5%, from 142 cases per 1,000 population at risk in 2015 to 137 per 1,000 in 2024, while the malaria mortality rate decreased by 13.6%, from 0.44 to 0.38 deaths per 1,000 population at risk over the same period.
 
 According to the SMPS 2025, malaria prevalence was 7.5% among school-aged children (5–16 years) and 5.7% among children under five. Transmission remains heterogeneous across the country. Among school-aged children, prevalence was highest in the Lake (15.7%), Southern (12.5%), and Western (11.3%) zones, and lowest in the Central (0.3%), Northern (1.3%), and Southern Highlands (3.7%) zones. Among children under five, prevalence was highest in the Lake (12.5%) and Southwest Highlands (8.7%) zones.
 
@@ -83,8 +84,11 @@ The graphic below illustrates the trend of malaria prevalence in Tanzania since 
 The prevalence values from 2006-2022 are based on data from Demographic and Health Surveys (DHS) and Malaria Indicator Surveys (MIS), while the remaining years are from SMPS survey (2023-2025).
 Additionally, the country has implemented three National Malaria Strategic Plans (NMSPs) at varying intervals.
 
-**Figure:** [file-name of policy/intervention timeline]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** tza_timeline.png
+
+![](Images/tza_timeline.png)
+
+**Caption:** Malaria prevalence among children aged 6–59 months and key malaria control milestones, Mainland Tanzania, 2007–2025 · **Source:** THMIS 2007–08 (Table 11.11); THMIS 2011–12 (Table 11.5); TDHS-MIS 2015–16 (Table 12.16); TMIS 2017 (Table 4.6); TDHS-MIS 2022 (Table 12.15); SMPS 2025; NBS Population and Housing Census 2012, 2022; NMCP/NMSP documents
 
 ---
 
@@ -114,27 +118,52 @@ In addition, malaria infection among pregnant women aged 15–45 years is monito
 
 ### 6b. Survey-derived indicators
 
-| Indicator | Value | Year | Source (Survey name) |
-|---|---|---|---|
-| [ ] | [ ] | [ ] | [ ] |
+Values are percentages (except the mean number of ITNs per household) for Tanzania as a whole (Mainland and Zanzibar combined), as published in DHS StatCompiler. NA = not available for that survey.
+
+| Indicator | 2022<br>TDHS-MIS | 2017<br>TMIS | 2015–16<br>TDHS-MIS | 2011–12<br>THMIS | 2010<br>TDHS | 2007–08<br>THMIS | 2004–05<br>TDHS |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Malaria prevalence according to RDT | 7.9 | 7.3 | 14.4 | 9.2 | NA | 17.7 | NA |
+| Malaria prevalence according to microscopy | NA | NA | 5.6 | 4.1 | NA | NA | NA |
+| Mean number of insecticide-treated mosquito nets (ITNs) per household | 1.6 | 1.8 | 1.6 | 2.3 | 1.2 | 0.7 | 0.4 |
+| Persons with access to an insecticide-treated mosquito net (ITN) | 58.4 | 62.5 | 55.9 | 74.5 | 46.6 | 25.4 | 15.6 |
+| Population who slept under an insecticide-treated mosquito net (ITN) last night | 58.9 | 52.2 | 49.0 | 68.4 | 45.2 | 20.4 | 14.9 |
+| Existing insecticide-treated mosquito nets (ITNs) used last night | 82.1 | 66.7 | 69.4 | 75.1 | 81.9 | 70.7 | NA |
+| Children under 5 who slept under an insecticide-treated net (ITN) | 64.1 | 54.6 | 54.4 | 72.0 | 63.6 | 25.7 | 16.0 |
+| Pregnant women who slept under an insecticide-treated net (ITN) | 65.7 | 51.4 | 53.9 | 74.8 | 56.9 | 26.7 | 15.8 |
+| Households with indoor residual spraying (IRS) in last 12 months | NA | NA | 5.5 | 13.9 | NA | NA | NA |
+| SP/Fansidar 2+ doses during pregnancy | 58.4 | 56.1 | 35.3 | 33.2 | 27.2 | 30.7 | 22.3 |
+| SP/Fansidar 3+ doses during pregnancy | 31.7 | 25.8 | 8.0 | 4.0 | 2.7 | 7.0 | 2.8 |
+| Children with fever for whom advice or treatment was sought | 77.6 | 75.4 | 81.2 | 78.3 | 78.8 | 74.2 | 83.9 |
+| Children with fever for whom advice or treatment was sought, the source was a public sector facility | 49.0 | 46.7 | 36.6 | 47.8 | 11.8 | 49.3 | 43.2 |
+| Children with fever who were diagnosed with malaria by a healthcare provider | 31.3 | NA | NA | NA | NA | NA | NA |
+| Children with fever who took antimalarial drugs | NA | 36.2 | 51.1 | 53.7 | 59.1 | 56.7 | 60.0 |
+| Children who took any ACT | 94.7 | 89.4 | 84.9 | 61.1 | 62.2 | 37.6 | 7.5 |
+
+**Source:** ICF, The DHS Program STATcompiler (www.statcompiler.com), accessed 12 October 2026; export file STATcompilerExport20261012_155036.xlsx. Additional survey: School Malaria Parasitaemia Survey (SMPS) 2025 — malaria prevalence among school children aged 5–16 years, 7.5%.
 
 ---
 
 ## 7. Health System
 
-The national health system in Tanzania operates under a decentralized government structure, with the Ministry of Health (MoHCDGEC) and the President’s Office–Regional Administration and Local Government (PO-RALG) sharing responsibility for the delivery of public health services. The MoHCDGEC is responsible for policy development, formulation of guidelines, and monitoring, while also directly managing referral hospitals, particularly national-level hospitals.
+The national health system in Tanzania operates under a decentralized government structure, with the Ministry of Health (MoH) and the President’s Office–Regional Administration and Local Government (PO-RALG) sharing responsibility for the delivery of public health services. The MoH is responsible for policy development, formulation of guidelines, and monitoring, while also directly managing referral hospitals, particularly national-level hospitals.
 
-Tanzania has approximately 14,321 registered and functional health facilities, of which 60% are publicly owned and 40% are privately owned. These include 9,016 (62.9%) dispensaries, 1,441 (10.6%) health centers, 1,125 (7.9%) clinics, 1,920 (13.6%) health laboratories, 484 (3.4%) hospitals, and 335 (1.6%) other facilities. The health system is organized hierarchically according to administrative level, facility type, and function, with a referral structure extending from primary healthcare to tertiary care.
+Tanzania has approximately 14,321 registered and functional health facilities, of which 60% are publicly owned and 40% are privately owned. These include 9,016 (63.0%) dispensaries, 1,441 (10.1%) health centers, 1,125 (7.9%) clinics, 1,920 (13.4%) health laboratories, 484 (3.4%) hospitals, and 335 (2.3%) other facilities. The health system is organized hierarchically according to administrative level, facility type, and function, with a referral structure extending from primary healthcare to tertiary care.
 
 At the primary healthcare level, dispensaries, clinics, health centers, and district hospitals provide essential health services. A dispensary typically serves a population of 6,000–10,000 people, a health center 50,000–80,000 people, and a district hospital more than 250,000 people. Regional hospitals provide secondary-level referral services for district hospitals, while zonal hospitals receive referrals from regional hospitals. National hospitals provide tertiary-level referral services from both zonal and regional hospitals. Specialized hospitals that do not fit within this hierarchy are directly linked to the Ministry of Health.
 
 Community health workers (CHWs) also play an important role in the health system by collecting community-level health data during household visits and community activities and facilitating referrals from communities to health facilities. CHWs record daily information using MTUHA Book No. 3, with completed records maintained at health facilities. Facility in-charges subsequently compile monthly summaries in MTUHA Book No. 10 for entry into the Health Management Information System (HMIS/DHIS2) or submission to the council for data entry ([Community Health Roadmap](https://www.communityhealthdeliverypartnership.org/media/526/file/Tanzania+mainland+approved+CHR+profile+24th+Nov+2023.pdf.pdf)). Tanzania currently has approximately 20,487 CHWs and aims to expand the workforce to more than 150,000 within five years.
 
-**Figure:** [filename — health system reporting structure/operation diagram]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** tza_health_system.png
 
-**Figure (if available):** [filename — health facility mapping, via HFR]
-**Caption:** [ ] · **Source:** [ ]
+![](Images/tza_health_system.png)
+
+**Caption:** Structure of the health system in Mainland Tanzania (public and private, primary to tertiary level) and the flow of routine health information from facilities to the national data warehouse · **Source:** [source of the diagram]
+
+**Figure (if available):** tza_facilities_map.png
+
+![](Images/tza_facilities_map.png)
+
+**Caption:** Number of operating health facilities by region, Mainland Tanzania · **Source:** Health Facility Registry (HFR), Ministry of Health, accessed [date]
 
 ---
 
@@ -144,8 +173,11 @@ The most recent national malaria risk stratification framework was developed as 
 
 The stratification followed a three-step composite scoring approach. First, each indicator was categorized into four epidemiological risk groups—very low, low, moderate, and high—using predefined thresholds. For PfPR₅–₁₆, the corresponding thresholds were <1%, 1–<5%, 5–<30%, and ≥30%; equivalent thresholds were defined for TPR, API, confirmed malaria incidence, and ANC TPR. Because historical evidence for appropriate thresholds for routine fever and incidence indicators was limited, the PfPR₅–₁₆ classification was used to guide the selection of thresholds for these indicators. Second, each indicator category was assigned a score from 1 (very low) to 4 (high). A conservative approach was applied to routine indicators, with councils classified according to the maximum risk observed over the preceding three years, reducing the likelihood that temporary declines would result in councils being assigned to an unnecessarily lower risk category. Third, the scores across the five indicators were summed for each council to produce a composite risk score ranging from 4 to 16. Councils scoring ≤6 were classified as very low risk, >6–10 as low risk, >10–14 as moderate risk, and >14 as high risk. Urban councils were additionally treated as a separate operational stratum because of their distinct operational and intervention requirements. The NMSP describes this stratification as a continuous process, with strata expected to be updated every three years as part of mid-term strategic reviews.
 
-**Figure:** [filename — latest SNT stratification map]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** tza_stratification_2022.png
+
+![](Images/tza_stratification_2022.png)
+
+**Caption:** Council-level malaria risk stratification, Mainland Tanzania, 2020 and 2022, with the number of councils per stratum (epidemiological strata, and epidemiological plus urban strata; 184 councils) · **Source:** National Malaria Control Programme (NMCP)
 
 ---
 
@@ -162,9 +194,6 @@ The main rainy season generally occurs from March to May, followed by a longer d
 These climatic and ecological conditions influence malaria transmission through their effects on vector breeding, parasite development, and mosquito survival. 
 Rainfall provides breeding sites for malaria vectors, temperature affects the duration of parasite development within mosquitoes, and relative humidity influences vector longevity. 
 Consequently, spatial and seasonal variation in rainfall, temperature, and humidity contributes to differences in malaria transmission across Mainland Tanzania ([NMSP 2021-2025](https://www.nmcp.go.tz/storage/app/uploads/public/643/916/391/6439163912677679591851.pdf)).
-
-**Figure (if available):** [filename — seasonality/climate figure]
-**Caption:** [ ] · **Source:** [ ]
 
 ---
 
@@ -185,11 +214,15 @@ The *kdr* L995S mutation was detected in 21 of 22 sentinel districts, while L995
 The *ace-1* G119S mutation occurred at much lower frequencies, at 1.0% in *An. arabiensis* and 0.58% in *An. gambiae* s.s. 
 These findings indicate widespread pyrethroid resistance across Mainland Tanzania, with both target-site and metabolic mechanisms contributing to the observed resistance phenotype ([Kabula, Mlacha et al. (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11663351/)).
 
-**Figure (maps recommended):** [filename — vector distribution map]
-**Caption:** [ ] · **Source:** [ ]
+**Figure (maps recommended):** tza_species_map.png
 
-**Resistance profile:** [free text or table of resistance findings by
-species/insecticide class, with year and source]
+![](Images/tza_species_map.png)
+
+**Caption:** Relative composition of malaria vector species (An. arabiensis, An. funestus s.s., An. gambiae s.s.) at sentinel sites, Mainland Tanzania · **Source:** [paper or report the map comes from]
+
+**Resistance profile:** Percentage mortality (with 95% confidence intervals) of An. gambiae s.l. exposed to alpha-cypermethrin, deltamethrin, permethrin and pirimiphos-methyl in 22 sentinel districts, May–July 2023 (red = confirmed resistance, <90% mortality; blue = possible resistance, 90–97%; grey = susceptible, 98–100%). See tza_InsecticideResistance.png. Source: [Kabula, Mlacha et al. (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11663351/)
+
+![](Images/tza_InsecticideResistance.png)
 
 ---
 
