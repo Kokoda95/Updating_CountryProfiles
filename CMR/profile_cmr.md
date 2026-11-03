@@ -56,8 +56,11 @@ The smallest units, districts, are administered by district heads (chefs de dist
 The administrative and health systems are distinct but overlap at the regional level. The health system's 200 districts are where malaria decisions are tailored to local needs.
 
 
-**Figure:** [file-name of administrative boundary map]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** cmr_admin_boundaries.png
+
+![](Images/cmr_admin_boundaries.png)
+
+**Caption:** Administrative map of Cameroon showing the 10 regions and their health districts (2025 boundaries; 205 district polygons). · **Source:** Health district boundaries from the Cameroon DHIS2 organisation-unit shapefile (2025); neighbouring country boundaries from Natural Earth.
 
 ---
 
@@ -107,8 +110,11 @@ Additional events:
 - PMC was introduced in 2023
 - Mass campaign of LLINs (PBO, Dual AI) in 2025
 
-**Figure:** [file-name of policy/intervention timeline]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** cmr_timeline.png
+
+![](Images/cmr_timeline.png)
+
+**Caption:** History of malaria in Cameroon, 2006–present: malaria prevalence among children 6–59 months by RDT (DHS 2011: 30.0%; DHS 2018: 24.0%; MIS 2022: 26.2%) and key policy, intervention and data milestones · **Source:** Prevalence: [DHS Program API / STATcompiler](https://api.dhsprogram.com/rest/dhs/data?countryIds=CM&indicatorIds=ML_PMAL_C_RDT&breakdown=national); events: [Antonio-Nkondjio et al., 2019](https://pmc.ncbi.nlm.nih.gov/articles/PMC6815446/), [Global Fund concept note 2014](https://www.severemalaria.org/sites/default/files/content/document/CMR-M_ConceptNote_0_en%20(1).pdf), [PSNLP 2024–2028](http://www.pnlpcameroun.cm/wp-content/uploads/2025/12/Cameroun_Paludisme-PSNLP-2024-2028.pdf), [Malaria Journal 2023 (SMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10640753/), [PSI Plus Project (PMC)](https://www.psi.org/plusproject-posts/bringing-health-care-closer-to-remote-communities-in-cameroon-to-increase-coverage-against-malaria/), [MINSANTE (UHC)](https://minsante.cm/site/?q=en/node/4579), [Severe Malaria Observatory (IPTp)](https://www.severemalaria.org/countries/cameroon), [Malaria Journal 2020 (IPTp ≥3 doses)](https://link.springer.com/article/10.1186/s12936-020-03155-2), [USAID 2017 (PMI)](https://2012-2017.usaid.gov/news-information/press-releases/sep-21-2017-pmi-launches-and-expands-west-and-central-africa), [Gavi (RTS,S)](https://www.gavi.org/vaccineswork/turning-point-cameroon-rolls-out-worlds-first-malaria-vaccine), [MINSANTE (5th ITN campaign)](https://minsante.cm/site/?q=en%2Fnode%2F5127)
 
 ---
 
@@ -145,8 +151,11 @@ Cameroon also has 9,575 Community Health Workers (CHWs) providing preventive and
 CHWs report to the leading health facilities within their areas, with data integrated into the Health Management Information System (HMIS). 
 Despite their critical role, Cameroon has not yet met its target of 15,000 CHWs, leaving some areas under-served.
 
-**Figure:** [filename — health system reporting structure/operation diagram]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** cmr_healthsystem.PNG
+
+![](Images/cmr_healthsystem.PNG)
+
+**Caption:** Three-tier structure of the Cameroon health system (central, intermediate and peripheral levels) and the flow of routine data: health areas (health centres, clinics, dispensaries and CHWs) report through DHIS2 and paper forms; health districts and regions report through DHIS2 · **Source:** [source of the diagram]
 
 **Figure (if available):** [filename — health facility mapping, via HFR]
 **Caption:** [ ] · **Source:** [ ]
@@ -170,8 +179,11 @@ This rate was scored 2 for below 20 deaths per 100,000, 3 for 20–49, 4 for 50�
 The sum gave a final score from 3 to 10, which placed each district in one of four risk levels: Low (3–4), Moderate (5–6), High (7–8) or Very high (9–10). 
 Figure below shows the resulting map of malaria risk levels across the country’s health districts.
 
-**Figure:** [filename — latest SNT stratification map]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** cmr_stratification_2026.jpg
+
+![](Images/cmr_stratification_2026.jpg)
+
+**Caption:** Health-district malaria risk stratification, Cameroon, 2023 (left) and 2026 update (right). 2026 strata: 1) Faible (low), 2) Moyenne (moderate), 3) Élevée (high), 4) Très élevée (very high); based on 2020–2024 adjusted incidence, MAP PfPR and under-5 malaria mortality · **Source:** National Malaria Control Programme (NMCP), with CHAI and the Malaria Atlas Project (MAP), 2026
 
 ---
 
@@ -193,8 +205,11 @@ Temperatures generally range from 17–34°C, with high humidity and substantial
 The Southwest experiences a prolonged rainy season, while much of the remaining forest zone has two rainy seasons, broadly March–June and September–November. 
 Malaria transmission occurs throughout the year, with seasonal increases during and after the rains ([Nelly Armanda Kala Chouakeu,et.al, 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC10080520/)).
 
-**Figure (if available):** [filename — seasonality/climate figure]
-**Caption:** [ ] · **Source:** [ ]
+**Figure:** cmr_climate_zones.jpg
+
+![](Images/cmr_climate_zones.jpg)
+
+**Caption:** Eco-epidemiological zones of Cameroon (Sahelian, Savannah, Forest and Highland) with major rivers and lakes; red dots mark the study sites (Kaélé, Tibati, Santchou, Bertoua) of the source study · **Source:** [confirm — e.g. Kala Chouakeu et al., 2023](https://pmc.ncbi.nlm.nih.gov/articles/PMC10080520/)
 
 ---
 
