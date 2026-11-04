@@ -124,16 +124,16 @@ Additional events:
 
 ### 6a. DHIS2-derived indicators
 
-| Indicator | Value | Year | Source (DHIS2) |
-|---|---|---|---|
-| [ ] | [ ] | [ ] | [ ] |
+![](Images/rdata.JPG)
+
+**Source:** NMCP routine surveillance data (DHIS2), from the previous Cameroon country profile [confirm original source].
 
 
 ### 6b. Survey-derived indicators
 
-| Indicator | Value | Year | Source (Survey name) |
-|---|---|---|---|
-| [ ] | [ ] | [ ] | [ ] |
+![](Images/sdata.JPG)
+
+**Source:** Cameroon DHS-MICS 2011, MIS 2011, MICS 2014, DHS 2018 and MIS 2022, from the previous Cameroon country profile [confirm original source].
 
 ---
 
